@@ -31,14 +31,16 @@
    
    <div class="container">
       <div class="row">
-          <div class="col-xs-8">
-              <input type="text"  class="form-control" name="task" placeholder="Task" #taskInput>
-  
-          </div>
-   
-          <div class="col-xs-4">
-              <button class="btn btn-info" (click)="addTask(taskInput)">Add</button>
-          </div>
+        <form action="" (formGroup)="todoForm">
+            <div class="col-xs-8">
+                <input type="text"   class="form-control" name="task" formControlName="task" placeholder="Task" #taskInput required ngModel>
+                <small class="text-danger" *ngIf="todoForm.get('task')?.hasError('required') && todoForm.get('task')?.touched ">Please enter task</small>
+            </div>
+            
+            <div class="col-xs-4 mt-2">
+                <button class="btn btn-info"  (click)="addTask(taskInput)">Add</button>
+            </div>
+        </form>
       </div>
    
       <div class="row">

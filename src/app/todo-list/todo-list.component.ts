@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,FormControl,Validators } from '@angular/forms';
 
 interface Task{
   title: string,
@@ -24,11 +25,15 @@ export class TodoListComponent implements OnInit {
       is_canceled: false
     }
   ];
-  
+  todoForm!:FormGroup
 
   constructor() { }
 
   ngOnInit(): void {
+    this.todoForm = new FormGroup({
+      task:new FormControl('',[Validators.required,Validators.minLength(2)])
+      
+    })
   }
 
   onSubmit(){
@@ -43,6 +48,9 @@ export class TodoListComponent implements OnInit {
   }
  
   addTask(input:any){
+    if(input.value == ''){
+      return
+    }
     let value = input.value;
     input.value = "";
     this.tasks.push(
