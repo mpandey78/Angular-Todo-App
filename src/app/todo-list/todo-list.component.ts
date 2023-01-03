@@ -31,7 +31,7 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.todoForm = new FormGroup({
-      task:new FormControl('',[Validators.required,Validators.minLength(2)])
+      task : new FormControl('',[Validators.required,Validators.minLength(2)])
       
     })
   }
