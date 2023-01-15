@@ -38,7 +38,7 @@ export class TodoListComponent implements OnInit {
 
   onSubmit(){
   }
-  
+  //  
  
   clearToDo(){
     let do_delete = confirm("Are you sure to delete all tasks?");
